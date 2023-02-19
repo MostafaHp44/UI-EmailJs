@@ -1,0 +1,19 @@
+.home
+{
+    position: absolute;
+    margin-top: 1em;
+    margin-left: 10em;
+}
+.screen1
+{
+    position: absolute;
+    margin-left: 30em;
+    margin-top: 58px;
+    transition-delay: 1.5s;
+}
+@media (max-width:875px)
+{
+.Phone{
+    display: none;
+}
+}

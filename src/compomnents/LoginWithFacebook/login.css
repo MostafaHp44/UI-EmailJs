@@ -1,0 +1,75 @@
+.login-facebook {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+.loginLogo
+{
+    position: absolute;
+    margin-left: 62em;
+    margin-top: -35em;
+}
+.login-facebook div img {
+    object-fit: contain;
+    height: 150px;
+}
+.login-facebook div {
+    display: flex;
+    flex-direction: column;
+}
+.login-facebook button {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    margin-left: 1em;
+    width: 363px;
+}
+.login-facebook button:hover {
+    background-color: #166FE5;
+    color: white;
+}
+.myform
+{
+    position: absolute;
+    margin-left: 64em;
+    margin-top: -13em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    padding: 0 0 14px 0;
+    width: 396px;
+
+}
+.INPUT
+{
+    gap: 10px;
+    margin-left: 1em;
+}
+.inputmyform
+{
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+}
+label
+{
+    margin-left: 8em;
+    margin-top: 1em;
+}
+@media (max-width:850px)
+{ 
+    .login-facebook{
+        margin-left: -47em;
+    margin-top: 9em;
+    }
+}
+@media (max-width:450px)
+{ 
+    .login-facebook{
+        margin-left: -64em;
+    margin-top: 9em;
+    }
+}

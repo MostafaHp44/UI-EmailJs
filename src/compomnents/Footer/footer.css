@@ -1,0 +1,62 @@
+.BigFooter
+{
+    position: absolute;
+    margin-left: 23em;
+    margin-top: 42em;
+    display: flex;
+    gap: 15px;
+}
+a
+{
+    text-decoration: none;
+    color: #8E8E8E;
+    font-size: 12px;
+}
+.ListLang
+{
+    position: absolute;
+    margin-top: 0em;
+    margin-left: 19em;
+    text-decoration: none;
+    color: #8E8E8E;
+    font-size: 12px;
+    padding: 3em;
+}
+.arrow
+{
+    position: absolute;
+    margin-top: -16px;
+    margin-left: 43px;
+    transform: rotate(180deg);
+}
+.list
+{
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+}
+.content
+{
+    position: absolute;
+    margin-left: 6em;
+    margin-top: -1em;
+    width: 20em;
+}
+
+@media (max-width:450px)
+{
+   .BigFooter
+   {
+     position: absolute; 
+     margin-left: 9em;
+     margin-top: 47em;
+     display: flex;
+     gap: 15px;
+    }
+     
+}
